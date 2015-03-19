@@ -1,0 +1,253 @@
+ import java.util.Random;
+ import java.util.Timer;
+public class DragonWorkShop 
+{ 
+ //********Instance Variables******** 
+
+ //DO NOT ADD, DO NOT CHANGE  private int myStaples;  //how many staples in stapler  private int myCapacity;  //how many staples it can hold  private boolean myClosed; //is stapler closed? 
+ 
+ //********Constructors******** 
+ 
+ //Default constructor. 
+ //Tail lenght and Health
+private int myTailLenght;
+private int myHealth;
+private String myName;
+private String myItem;
+private double myMoney;
+//boolean myClosed;
+ 
+ public DragonWorkShop() 
+ { 
+   
+ myName="";
+ myTailLenght = 0;
+myHealth = 100;
+myItem = "Hat";
+ myMoney = 0.0;
+ 
+ } 
+ 
+ //Regular constructor.  Initialize instance variables with  //provided values.  Assume user will use valid values for all. 
+ public DragonWorkShop(String theName ,int health, int tailLenght, String item, double money ) 
+ { 
+   
+   
+   if (health > 100){
+  myHealth = 100;
+  
+  }else myHealth =  health;
+  
+  
+  
+  
+  
+  myTailLenght = tailLenght;
+  myName=theName;
+  myItem = item;
+  myMoney = money;
+ 
+ } 
+ 
+ //Copy constructor.  Initializes stapler with values provided  //from another stapler.  Assume "temp" stapler has valid values. 
+ public DragonWorkShop(DragonWorkShop temp) { 
+ 
+  myHealth = temp.currntHealth(); 
+  myTailLenght = temp.getTailLenght();
+ myName= temp.getName();
+myItem = temp.getItem();
+ myMoney = temp.getMoney();
+ 
+ } 
+ 
+ //********Mutator Methods (change values) ******** 
+ 
+ //Close the stapler  
+//public void closeStapler() { 
+  
+
+//myClosed = true;
+
+public void Work() { 
+   Random rn = new Random();
+   int loss = rn.nextInt(100) + 1;
+   myMoney= myMoney+(myTailLenght* loss);
+   int money= (myTailLenght* loss);
+   
+   System.out.println("::::::::::::::::WORK:::::::::::::::::\n");
+   
+   
+ if (myHealth ==100){
+  System.out.println(myName+" is very eager to go to work for The big Raccoon today.\n");
+  
+  System.out.println("The Big Raccoon saw how happy "+myName+" is he might give you a raise.\n");
+ 
+   System.out.println("Oh no "+myName+" loss "+loss+"% in Health\n"+"At Least "+myName+" is happy to get $"+money);
+ } 
+ 
+ 
+ if (myHealth >=40 && myHealth  < 100){
+  System.out.println(myName+" is not very eager to go to work for The big Raccoon today.\n\n");
+ 
+   System.out.println("Oh no "+myName+" loss "+loss+"% in Health\n"+"At Least "+myName+" is happy to get $"+money);
+ }
+ 
+ 
+ if (myHealth <=30){
+  System.out.println(myName+" does not want to work for The big Raccoon today.\n "+myName+" thinks he might die of working");
+  System.out.println("The Big Raccoon saw how lifeless "+myName+" is, he might double the insurance rate.\n");
+ 
+   System.out.println("\nOh no "+myName+" loss "+loss+"% in Health\n"+"At Least "+myName+" is happy to get $"+money);
+   System.out.println("\nUhh? "+myName+" is not moving.\n");
+   
+ } 
+ 
+ 
+  myHealth=myHealth -loss;
+   
+  if (myHealth <=0){
+  System.out.println("I'm sorry "+myName+" died due to hard work for The big Raccoon.\n");
+ 
+  //System.out.println("Oh no "+myName+" loss "+loss+"% in Health");
+  //System.out.println(D2.toString());
+ } 
+  System.out.println("\n\n");
+ }
+
+
+
+public void Eat() { 
+   Random rn = new Random();
+   int gain = rn.nextInt(40) + 1;
+   int raccoon = rn.nextInt(2)+1;
+   int loss = rn.nextInt(100) + 1;
+   int health= (myTailLenght* gain);
+   myHealth= myHealth+gain;
+   
+   System.out.println("::::::::::::::::EAT A PLANET:::::::::::::::::\n");
+   
+ if (raccoon ==1){
+  System.out.println(myName+" is very eager to eat a planet today.\n\n");
+ 
+   System.out.println(myName+" gained "+gain+"% in Health from eating that planet\n\n");
+ } 
+ 
+ if (raccoon ==2){
+  System.out.println(myName+" is very eager to eat a planet today.\n\n"+"Uhh.......Is that the Big Raccoon?\n");
+ 
+   System.out.println("The Big Raccoon will to eat your planet for "+loss+"$\n\n"+myName+ " loss "+loss+"$ in money.\n\n");
+   myMoney=myMoney- loss;
+ }
+  //myHealth=myHealth -loss;
+ }
+
+public void ShowOff() { 
+  
+  System.out.println("::::::::::::::::SHOW AND TELL:::::::::::::::::\n");
+  
+   
+  if (myMoney<500){
+  
+    System.out.println("\n\n"+myName+" needs to Pay $500 for admission to the Show and Tell Center\n");
+
+    
+  }
+  
+  if (myMoney>500){
+  
+  
+  
+  
+  
+  System.out.println(myName+" went to the Show and Tell Center and Paid $500 for admission");
+
+ 
+ 
+  if (myItem.equals("Pencil")){
+       
+         System.out.println(myName+" showed off his Pencil,\nThe Crowds of Dragons turn bored and under The Big Raccoons orders \n");
+          System.out.println("They threw Fireballs at "+myName+" and burned the Pencil.");
+          System.out.println(myName+ " loss 50% in Health");
+          myHealth= myHealth-50;
+          
+          if (myHealth <=0){
+        System.out.print("and Died \n\n");
+ 
+ }
+         myItem="Burned Pencil";
+        
+       }
+   }
+
+ 
+}
+ 
+
+ 
+ //} 
+ 
+ //Increase staples up to the maximum capacity. 
+ //The stapler must already be OPEN to add staples. 
+ //HINT: Requires IF statement(s) to make sure stapler is already   //open and to make sure you fill it up to, BUT NOT BEYOND capacity. 
+// public void addStaples(int moreStaples) 
+// { 
+ 
+ 
+ 
+//if (moreStaples > myCapacity){ 
+  
+ // myStaples =  myCapacity;
+// }
+//} 
+ 
+ //********Accessor Methods (return values) ******** 
+ 
+ //returns number of staples 
+ public int currntHealth() { 
+ return myHealth;
+ } 
+ 
+ //returns capacity of stapler 
+ public int getTailLenght() 
+ { 
+  return myTailLenght;
+ }
+ 
+ public String toString() 
+ { 
+  return "Name: "+myName+"\n"+"Health: "+myHealth+"%\n"+"Item: "+myItem+"\n"+"Money: $"+myMoney+"\n"+"TailLenght: "+myTailLenght+"\n\n";
+  
+ }
+ 
+ public int getHealth() 
+ { 
+  return myHealth;
+ }
+ 
+ 
+ 
+ public String getItem() 
+ { 
+  return myItem;
+ }
+
+
+ 
+  public double getMoney() 
+ { 
+  return myMoney;
+ }
+ 
+ 
+ public String getName() 
+ { 
+  return myName;
+ }
+ 
+ //returns open/closed status of stapler  public boolean isClosed() 
+  //public boolean isClosed(){ 
+ //return myClosed;
+ //} 
+}
+
+ 
