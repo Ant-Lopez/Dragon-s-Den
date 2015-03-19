@@ -1,0 +1,36 @@
+import java.io.*;
+import static java.lang.System.*;
+
+import java.util.Scanner;
+import java.lang.Math;
+
+import java.util.*;
+
+public class DragonRunner 
+{ 
+  
+  
+    public static void main(String args[]) {
+      
+      
+     ArrayList <DragonWorkShop> den = new  ArrayList<DragonWorkShop>();
+      System.out.println("WELCOME TO THE DRAGON Maker \n");
+      System.out.println("Our First Dragon is:");
+      
+      //Make First Dragon
+      DragonWorkShop D1 = new DragonWorkShop("Grassninja",71,5,"Top Hat",30.0);
+      DragonWorkShop D2 = new DragonWorkShop("Grassassin",110,6,"Pencil",940.0);
+      //DragonWorkShop D1 = new DragonWorkShop(name,health,tailLenght,item,money);
+      //makeDragon();
+      den.add(D2);
+      System.out.println(D2.toString());
+      
+     D2.Work();
+     D1.Work();
+     D2.Eat();
+     D2.ShowOff();
+      
+    System.out.println(D2.toString());
+      
+}
+    
